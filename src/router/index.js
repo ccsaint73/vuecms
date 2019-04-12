@@ -6,8 +6,34 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     {
-      path: '/',
-      component: ()=>import('@/pages/home')
+      path: '/home',
+      component: ()=>import('@/pages/home'),
+      children: [
+        {
+          path: '/home/index',
+          component: ()=>import('@/pages/index')
+        },
+        {
+          path: '/home/table',
+          component: ()=>import('@/pages/table')
+        },
+        {
+          path: '/home/button',
+          component: ()=>import('@/pages/userButton')
+        },
+        {
+          path: '/home/form',
+          component: ()=>import('@/pages/userForm')
+        },
+        {
+          path: '/home/setting',
+          component: ()=>import('@/pages/setting')
+        },
+        {
+          path: '/home',
+          redirect: '/home/index'
+        }
+      ]
     },
     {
       path: '/login',
@@ -17,6 +43,10 @@ const router = new Router({
       path: '/register',
       component: ()=>import('@/pages/register')
     },
+    {
+      path: '/',
+      redirect: '/home'
+    }
   ]
 })
 

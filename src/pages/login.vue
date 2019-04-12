@@ -42,7 +42,7 @@ export default {
             this.$axios.post(url, params).then((res)=>{
                 if(res.data.status == 200){
                     localStorage.setItem('user_id', res.data.data.user_id);
-                    this.$router.push('/')
+                    this.$router.push('/home')
                 }
             })
             
